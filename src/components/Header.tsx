@@ -1,26 +1,38 @@
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const navLinks = [
-  { label: 'Problem', href: '#problem' },
-  { label: 'Solution', href: '#solution' },
-  { label: 'Token', href: '#token' },
-  { label: 'Roadmap', href: '#roadmap' },
+  { label: 'About', href: '#about' },
+  { label: 'Mission', href: '#mission' },
+  { label: 'Programs', href: '#programs' },
   { label: 'Governance', href: '#governance' },
+  { label: 'Transparency', href: '#transparency' },
 ];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#07070A]/80 backdrop-blur-xl border-b border-white/5">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-[#07070A]/90 backdrop-blur-xl border-b border-white/5' : ''
+    }`}>
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <img src="/logo.png" alt="MIGA" className="h-10 w-10 rounded-full" />
-            <span className="text-2xl font-bold text-white">MIGA</span>
+          {/* Logo - matching protocol style */}
+          <Link to="/" className="flex items-center gap-2 group">
+            <span className="text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">
+              MIGA
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -36,11 +48,11 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* CTA - Join DAO button */}
+          <div className="hidden md:flex items-center">
             <a
               href="https://migaprotocol.xyz"
-              className="px-6 py-2.5 bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black font-semibold rounded-full hover:shadow-lg hover:shadow-[#FFD700]/30 transition-all"
+              className="px-6 py-2.5 border-2 border-[#FFD700] text-[#FFD700] font-semibold rounded-lg hover:bg-[#FFD700] hover:text-black transition-all"
             >
               Join DAO
             </a>
@@ -58,7 +70,7 @@ export function Header() {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-white/5">
+          <div className="md:hidden py-4 border-t border-white/5 bg-[#07070A]/95 backdrop-blur-xl">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
@@ -72,7 +84,7 @@ export function Header() {
               ))}
               <a
                 href="https://migaprotocol.xyz"
-                className="mt-4 px-6 py-3 bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black font-semibold rounded-full text-center"
+                className="mt-4 px-6 py-3 border-2 border-[#FFD700] text-[#FFD700] font-semibold rounded-lg text-center hover:bg-[#FFD700] hover:text-black transition-all"
                 onClick={() => setIsOpen(false)}
               >
                 Join DAO
