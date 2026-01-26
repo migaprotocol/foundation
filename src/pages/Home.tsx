@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowDown, Globe, Shield, Wifi, Radio, Film, GraduationCap, FileText, Megaphone, Users, Calendar, AlertTriangle, Clock, Ban, Building, Vote as VoteIcon, Zap, Eye, Check, X as XIcon } from 'lucide-react';
+import { ArrowRight, ArrowDown, Globe, Wifi, Radio, Film, FileText, Ban, Vote as VoteIcon, Zap, Eye, Check, X as XIcon } from 'lucide-react';
 
 export function Home() {
   return (

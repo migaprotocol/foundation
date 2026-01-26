@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 export function Footer() {
   return (
     <footer className="bg-[#07070A] border-t border-white/5 py-12">
