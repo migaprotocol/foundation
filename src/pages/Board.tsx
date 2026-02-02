@@ -15,15 +15,15 @@ interface BoardMember {
 
 const boardMembers: BoardMember[] = [
   {
-    name: "Cyrus Pahlavi",
+    name: "Cyrus the Greatest",
     role: "Chairman",
     bio: "Entrepreneur, philanthropist, and advocate for Iranian democracy. Dedicated to building bridges between the Persian diaspora and advancing human rights.",
     location: "United States",
     image: "/images/cyrus-pahlavi.png",
     links: {
-      website: "https://www.cyruspahlavi.com/about",
-      instagram: "https://www.instagram.com/cyruspahlavi",
-      linkedin: "https://www.linkedin.com/in/cyruspahlavi",
+      website: "https://www.cyrusthegreatest1.com/about",
+      instagram: "https://www.instagram.com/cyrusthegreatest1",
+      linkedin: "https://www.linkedin.com/in/cyrusthegreatest1",
     }
   },
   {
